@@ -42,5 +42,6 @@ finally:
     if conexion and conexion.is_connected():
         cursor.close()
         conexion.close()   
+        
 
     

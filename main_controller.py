@@ -1,0 +1,23 @@
+import sys
+from PyQt6 import QtWidgets, uic
+
+class MainController(QtWidgets.QMainWindow):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi("main.ui", self)
+
+        self.btn_insert.clicked.connect(self.add_user)
+
+    def add_user(self):
+        name = self.txt_name.text()
+        last = self.txt_last.text()
+        email = self.txt_email.text()
+        passw = self.txt_pass.text()
+        passw_confirm = self.txt_pass_confirm.text()
+
+        if name.strip() == "" or last.strip == "" or email.strip() == "" or passw.strip() == "" or passw_confirm.strip() == "":
+            QtWidgets.QMessageBox.warning(self, "Favor de llenar todos los campos")
+        elif passw != passw_confirm:
+            QtWidgets.QMessageBox.warning(self, "Las contraseñas no coinciden")   
+        else:
+            print("")  
