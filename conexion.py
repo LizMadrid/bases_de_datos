@@ -3,7 +3,7 @@ from mysql.connector import Error
 
 class Conexion:
     def __init__(self):
-        config = {
+        self.config = {
             "host":'localhost',
             "user":'root',
             "password":"",
