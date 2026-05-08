@@ -24,3 +24,5 @@ class MainController(QtWidgets.QMainWindow):
         else:
             sql = "INSERT INTO users values (%s,%s,%s,%s,%s,%s)"
             valores = (0,name,last,email,passw,'default.jpg') 
+            self.conexion.insertar(sql,valores)
+            QtWidgets.QMessageBox.information(self,"Registro insertado correctamente", None)

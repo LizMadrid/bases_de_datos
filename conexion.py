@@ -1,5 +1,6 @@
 import mysql.connector
 from mysql.connector import Error
+import mariadb
 
 class Conexion:
     def __init__(self):
@@ -7,16 +8,15 @@ class Conexion:
             "host":'localhost',
             "user":'root',
             "password":"",
-            "db":"prueba_python"
+            "database":"prueba_python"
         }
         self.conexion = None
         self.cursor = None
     def conectar(self):
         try:
-            self.conexion = mysql.connector.connect(**self.config)
-            if self.conexion.is_connected():
-                print("Conexión exitosa")   
-                self.cursor = self.conexion.cursor()
+            self.conexion = mariadb.connect(**self.config)
+            print("Conexión exitosa")   
+            self.cursor = self.conexion.cursor()
         except Error as e:
             print(f"ERROR: {e}")         
     #SIRIVE PARA INSERTAR, MODIFICAR O ELIMINAR
